@@ -10,8 +10,8 @@
     "start": "node app.js"
   },
   "engines": {
-    "node": "6.9.4",
-    "npm": "4.2.0"
+    "node": "8.12.0",
+    "npm": "4.6.1"
   },
   "private": true,
   "dependencies": {
