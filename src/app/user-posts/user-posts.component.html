@@ -1,0 +1,13 @@
+<ul *ngFor="let posts of allPosts; let i = index">
+<li>
+<h2>Post {{i+1}}</h2>
+<h4>{{posts.title}}</h4>
+</li>
+<li>
+    <img src="{{posts.metadata.postImage.url}}" height=300px width=300px>
+    </li>
+<li>
+  {{posts.content | slice:3:-4}}
+  </li>
+  <hr>
+</ul>

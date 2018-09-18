@@ -1,0 +1,111 @@
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+
+    <div class="nav-icon" (click)="toggleMenu()"><i class="fa fa-bars"></i></div>
+    <div *ngIf="menu" class="mobile-tabs">
+      <ul>
+        <li><button type="submit" class="btn" (click)="addNewBlog()">
+            Add New Blog
+          </button></li>
+        <li>  <button type="submit" class="btn" (click)="viewBlogs()">
+            View Your Blogs
+          </button></li>
+        <li>  <button type="submit" class="btn" (click)="viewAllBlogs()">
+            All Blogs
+          </button></li>
+        <li> <button type="submit" class="btn" (click)="logout()">
+            Logout
+          </button></li>
+      </ul>
+            
+          
+            
+               
+    </div>
+    
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0 display-none">
+
+        <li class="nav-item active">
+          <button type="submit" class="btn" (click)="addNewBlog()">
+            Add New Blog
+          </button>
+        </li>
+
+        <li class="nav-item active">
+          <button type="submit" class="btn" (click)="viewBlogs()">
+            View Your Blogs
+          </button>
+        </li>
+
+        <li class="nav-item active">
+          <button type="submit" class="btn" (click)="viewAllBlogs()">
+            All Blogs
+          </button>
+        </li>
+        <li class="nav-item active">
+          <button type="submit" class="btn" (click)="logout()">
+            Logout
+          </button>
+        </li>
+      </ul>
+    
+  </div>
+</nav>
+<!-- showing all blog posts from logged in user-->
+<div *ngIf="show == true">
+  <div class="blog">
+    <div class="container">
+      <ul *ngFor="let data of allBlogs;  let i = index">
+        <div class="blog-image">
+          <img src="{{data.metadata.blogImage}}" height=300px width=300px>
+        </div>
+        <h3>{{data.title}}</h3>
+        <p>Author: {{data.metadata.author}}</p>
+        <div class="blog-content">
+          <p>{{data.content | slice: 3:250}} ...</p>
+          <a class="btn btn-success" [routerLink]="['usersinglepost']" [queryParams]="{post_id: data._id}">Read more...</a>
+        </div>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="count == true">
+  <br>
+  <h4 class="cntr">Enter a New Blog Here:</h4>
+
+  <div class="container p-t-50">
+    <div class="row">
+      <div class="offset-md-3 col-md-6 form-back">
+        <div class="blog">
+          <form [formGroup]="blogForm" (ngSubmit)="submitForm()" novalidate>
+            <div class="form-group">
+              <input type=text formControlName="blogTitle" class="form-control" placeholder="Enter title">
+            </div>
+            <div class="form-group">
+              <input type=text formControlName="blogDescription" class="form-control" placeholder="Enter description">
+            </div>
+
+            <div class="form-group">
+              <textarea formControlName="blogBody" class="form-control" placeholder="Enter body"></textarea>
+            </div>
+
+            <div class="form-group">
+
+              <input type=text formControlName="imageUrl" class="form-control" placeholder="Image URL">
+            </div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-success" (click)="upload()">Publish</button>
+            </div>
+
+
+
+            <p>{{message}}</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

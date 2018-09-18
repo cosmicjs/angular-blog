@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title> Registration Page</title>
+
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+</head>
+
+<body class="hold-transition register-page">
+
+
+  <div class="register-box">
+    <div class="register-logo">
+      <a href="">
+        <b>Angular</b> Blog</a>
+    </div>
+
+    <div class="register-box-body">
+      <p class="login-box-msg">Register here</p>
+
+
+      <div class="form-group has-feedback">
+        <form [formGroup]="registerForm" (ngSubmit)="register()" novalidate>
+          <div>
+            <input formControlName="username" class="form-control" placeholder="Username" required>
+            <br>
+            <input type="email" formControlName="email" class="form-control" placeholder="Email" required>
+            <br>
+            <input formControlName="fullName" class="form-control" placeholder="Full Name" required>
+            <br>
+            <input type=password formControlName="password" class="form-control" placeholder="Password" required>
+            <br>
+            <input formControlName="imageURL" class="form-control" placeholder="Image URL" required>
+            <br>
+            <br>
+
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block btn-flat" [disabled]="registerForm.pristine">Register</button>
+          <p>{{message}}</p>
+        </form>
+        <div>
+          <a (click)="loginCall()" class="pointer">Already a member? Login here</a>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+
+
+</body>
+
+</html>

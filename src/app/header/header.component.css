@@ -1,0 +1,15 @@
+.jumbotron {
+    background: url(/assets/header-bg.png) no-repeat center top;
+    background-size:cover;
+    border-radius: 0;
+    margin-bottom:0;
+  }
+  .jumbotron h1 {
+    font-size: 3.5rem;
+    font-weight: 300;
+    line-height: 1.2;
+    color: #fff;
+    font-weight: bold;
+    
+  }
+  .cntr{text-align: center}
