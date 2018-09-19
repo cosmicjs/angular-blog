@@ -1,0 +1,19 @@
+
+<a class="right pointer login-btn" (click)="loginCall()">Login</a>
+<div class="blog">
+  <div class="container">
+    <ul *ngFor="let data of allBlogs;  let i = index">
+      <div class="blog-image">
+        <img src="{{data.metadata.blogImage}}" height=200px width=200px>
+      </div>
+      <h3>{{data.title}}</h3>
+      <p>Author: {{data.metadata.author}}</p>
+
+      <div class="blog-content">
+        <p>{{data.content | slice: 3:250}}... </p>
+
+        <a class="btn btn-success" [routerLink]="['singlepost']" [queryParams]="{post_id: data._id}">Read more...</a>
+      </div>
+    </ul>
+  </div>
+</div>

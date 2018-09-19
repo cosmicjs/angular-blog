@@ -1,0 +1,19 @@
+<a class="left pointer back-btn" (click)="dashboardCall()">Back</a>
+<div class="blog">
+
+  <div class="container">
+
+    <ul *ngFor="let data of singlePost">
+      <div class="blog-image">
+        <img src="{{data.metadata.blogImage}}" height=200px width=200px>
+      </div>
+      <h3>{{data.title}}</h3>
+      <p>Author: {{data.metadata.author}}</p>
+
+      <div class="blog-content">
+        <div [innerHTML]=data.content></div>
+
+      </div>
+    </ul>
+  </div>
+</div>  
