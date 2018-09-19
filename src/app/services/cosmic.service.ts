@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { Router } from '@angular/router';
 import {config} from '../../config/cosmo.config'
+import {blogModel} from '../models/cosmic.model';
+import {registerModel} from '../models/cosmic.model';
 
 @Injectable()
 
@@ -14,12 +16,12 @@ export class CosmicService {
     {}
 
     /**  getting details of user */
-    getUser(credentials) {     
+    getUser(registerModel) {     
         console.log(URL+this.bucket_slug)   ;
        return this._http.get(this.URL+this.bucket_slug+"/object-type/registerusers/search", {
        params: {
             metafield_key: 'username',
-            metafield_value: credentials.username,
+            metafield_value: registerModel.username,
             limit: 1,
             read_key: config.read_key
           }
@@ -30,39 +32,39 @@ export class CosmicService {
       }
 
       /**  register new user */
-      addUser(credentials)
+      addUser(registerModel)
       {
         return this._http.post(this.URL+this.bucket_slug+"/add-object/", {
-            title: credentials.username, slug: credentials.username, type_slug: 'registerusers', write_key: credentials.write_key,
+            title: registerModel.username, slug: registerModel.username, type_slug: 'registerusers', write_key: config.write_key,
 
             metafields: [
               {
                 key: "username",
                 type: "text",
-                value: credentials.username
+                value: registerModel.username
               },
 
               {
                 key: "email",
                 type: "text",
-                value: credentials.email
+                value: registerModel.email
               },
 
               {
                 key: "fullName",
                 type: "text",
-                value: credentials.fullName
+                value: registerModel.fullName
               },
 
               {
                 key: "password",
                 type: "text",
-                value: credentials.password
+                value: registerModel.password
               },
               {
                 key: "image",
                 type: "text",
-                value: credentials.imageURL
+                value: registerModel.imageURL
               }
             ],
           })
@@ -71,13 +73,13 @@ export class CosmicService {
           })
       }
       /**  add blog to backend */
-      addBlog(credentials)
+      addBlog(blogModel)
       {
         var jsondata = JSON.parse(localStorage.getItem('user'));
         const userName = jsondata.jsondata.objects[0].metadata.username; 
 
         return this._http.post(this.URL+this.bucket_slug+"/add-object/", {
-            title: credentials.blogTitle, content: credentials.blogBody, slug: credentials.title, type_slug: 'blogs', write_key: credentials.write_key,
+            title: blogModel.blogTitle, content: blogModel.blogBody, slug: blogModel.title, type_slug: 'blogs', write_key: config.write_key,
             metafields: [
               {
                 key: "author",
@@ -87,12 +89,12 @@ export class CosmicService {
               {
                 key: "description",
                 type: "text",
-                value: credentials.blogDescription
+                value: blogModel.blogDescription
               },
               {
                 key: "blogImage",
                 type: "text",
-                value: credentials.imageUrl
+                value: blogModel.imageUrl
               },
             ]
           })
@@ -135,7 +137,7 @@ showBlogs()
 }
 
 /**  showing single post on dashboard */
-showSinglePostDashboard(data)
+showSinglePostDashboard(blogModel)
 {
    return this._http.get(this.URL+this.bucket_slug+"/object-type/blogs/", {
       params: {
@@ -149,7 +151,7 @@ showSinglePostDashboard(data)
 }
 
 /**  showing single post on home page */
-singlePostHome(data)
+singlePostHome(blogModel)
 {
     return this._http.get(this.URL+this.bucket_slug+"/object-type/blogs/", {
 
@@ -160,13 +162,13 @@ singlePostHome(data)
 }
 
 /**  loggin user in */
-login(credentials)
+login(registerModel)
 {
   return this._http.get(this.URL+this.bucket_slug+"/object-type/registerusers/search", {
 
     params: {
       metafield_key: 'username',
-      metafield_value: credentials.username,
+      metafield_value: registerModel.username,
       limit: 1,
       read_key: config.read_key
     }

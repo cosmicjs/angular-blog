@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
 import { Router } from '@angular/router';
 import { CosmicService } from '../../services/cosmic.service'
-import {config} from '../../../config/cosmo.config'
+import {config} from '../../../config/cosmo.config' 
 
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 @Component({
