@@ -6,3 +6,4 @@ export const config = {
     bucket_slug: 'fc12db90-b5c1-11e8-a352-25ca4a173972',
     URL: 'https://api.cosmicjs.com/v1/',
     };
+    

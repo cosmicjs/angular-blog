@@ -15,16 +15,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-//import { AddpostComponent } from './components/addpost/addpost.component';
-//import { AddblogComponent } from './components/addblog/addblog.component';
 import { AllblogsComponent } from './components/allblogs/allblogs.component';
-//import { UserPostsComponent } from './components/user-posts/user-posts.component';
 import { SinglepostComponent } from './components/singlepost/singlepost.component';
 import { UsersinglepostComponent } from './components/usersinglepost/usersinglepost.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { CosmicService} from './services/cosmic.service'
+import { NgxEditorModule } from 'ngx-editor';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { CommentModule } from 'ng2-comment'; 
 
 enableProdMode();
 
@@ -33,16 +33,13 @@ enableProdMode();
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    //AddpostComponent,
-   // AddblogComponent,
     AllblogsComponent,
-    //UserPostsComponent,
     SinglepostComponent,
     UsersinglepostComponent,
     RegisterComponent,
     LoginComponent,
     DashboardComponent,
-    
+        
   ],
   imports: [
     BrowserModule,
@@ -56,10 +53,10 @@ enableProdMode();
     HttpClientModule,
     AppRoutingModule,
     RouterModule.forRoot([
-      
-
-
-    ])
+    ]),
+    NgxEditorModule,
+    AngularFontAwesomeModule,
+    CommentModule,
   ],
   exports: [BsDropdownModule, TooltipModule, ModalModule],
   providers: [HttpClient, AuthGuard, CosmicService],

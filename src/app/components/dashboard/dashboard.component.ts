@@ -20,18 +20,15 @@ export class DashboardComponent implements OnInit {
   show = false;
   message;
   menu : boolean = false;
-  blogModel = new blogModel();
   constructor(private router: Router, private _http: Http, private fb: FormBuilder,private cosmicService: CosmicService,
 
   ) {
     this.blogForm = this.fb.group({
-      'blogTitle': ['', [Validators.required]],
-      'blogDescription': ['', [Validators.required]],
-      'blogBody': ['', Validators.required],
-      'imageUrl': ['', [Validators.required]],
-
+      'title': ['', [Validators.required]],
+      'description': ['', [Validators.required]],
+      'content': ['', Validators.required],
+      'blogImage': ['', [Validators.required]],
     });
-
   }
 
   //to add new blog
@@ -54,10 +51,10 @@ export class DashboardComponent implements OnInit {
 
         this.data = res;
         var jsondata = JSON.parse(this.data._body);
-        this.blogModel = jsondata.objects;
+        this.allBlogs = jsondata.objects;
       })
   }
-  //view all Blogs from logged in user
+  //view Blogs of logged in user
   viewBlogs() {
     this.count = false;
     this.show = true;
@@ -67,23 +64,21 @@ export class DashboardComponent implements OnInit {
       .subscribe(res => {
         this.data = res;
         var jsondata = JSON.parse(this.data._body);
-        this.blogModel = jsondata.objects;
+        this.allBlogs = jsondata.objects;
 
       })
   }
   //logging user out
   logout() {
     localStorage.removeItem('user');
-
     this.router.navigate(['']);
   }
 
   submitForm() {
+      
+    const data = this.blogForm.value;
     
-    const credentials = this.blogForm.value;
-    credentials.write_key = config.write_key;
-
-    this.cosmicService.addBlog(credentials)
+    this.cosmicService.addBlog(data)
     
       .subscribe(res => {
         console.log(res);
@@ -91,6 +86,15 @@ export class DashboardComponent implements OnInit {
       })
   }
 
+  // hitId()
+  // {
+  //   this.cosmicService.hitId()
+    
+  //     .subscribe(res => {
+  //       console.log(res);
+        
+  //     })
+  // }
 
   ngOnInit() {
 

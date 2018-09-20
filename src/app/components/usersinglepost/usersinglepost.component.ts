@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Http } from '@angular/http';
 import { CosmicService } from '../../services/cosmic.service'
 
+
 @Component({
   selector: 'app-usersinglepost',
   templateUrl: './usersinglepost.component.html',
@@ -19,12 +20,12 @@ export class UsersinglepostComponent implements OnInit {
 
     this.data = this.router.snapshot.queryParamMap;
     this.post();
-  }
+  } 
 
   /**  to show single post */
   post() {
     var data = this.data.params.post_id;
-      this.cosmicService.singlePostHome(data)
+      this.cosmicService.singlePostHome()
       
       .subscribe(res => {
         this.data = res;

@@ -1,5 +1,6 @@
 export class registerModel {
 
+    _id: string;
     username: string;
     email: string;
     password: string;
@@ -10,7 +11,7 @@ export class registerModel {
 
 export class blogModel {
 
-    id: string;
+    _id: string;
     title: string;
     content: string;
     author: string;

@@ -10,9 +10,10 @@
       <p>Author: {{data.metadata.author}}</p>
 
       <div class="blog-content">
-        <p>{{data.content | slice: 3:250}}... </p>
+          <p [innerHTML]=data.metadata.description></p>  
+        <!-- <p>{{data.content | slice: 0:250}}... </p> -->
 
-        <a class="btn btn-success" [routerLink]="['singlepost']" [queryParams]="{post_id: data._id}">Read more...</a>
+        <a class="btn btn-success" [routerLink]="['singlepost']" [queryParams]="{slug: data.slug}">Read more...</a>
       </div>
     </ul>
   </div>

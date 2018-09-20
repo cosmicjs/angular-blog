@@ -1,8 +1,10 @@
 .cntr{text-align: center}
+.bg{background: white}
+
 ul {
     list-style: none;
   }
-  .jumbotron {
+  .jumbotron {  
     background: url(/assets/header-bg.png) no-repeat center top;
     background-size:cover;
     border-radius: 0;
@@ -64,7 +66,7 @@ transition:all 0.5s;
   border: 2px solid #3c8dbc;
   color: #3c8dbc;
   }
-
+  
   /* second */
 
   div{align-content:center}
@@ -144,5 +146,6 @@ transition:all 0.5s;
     width: 100%;
       }
   }
+
 
   

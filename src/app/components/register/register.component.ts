@@ -23,13 +23,12 @@ export class RegisterComponent implements OnInit {
       'email': ['', Validators.required],
       'fullName': ['', Validators.required],
       'password': ['', Validators.required],
-      'imageURL': ['', Validators.required],
+      'imageUrl': ['', Validators.required],
 
     });
   } 
 
   imagesave(e: Event) {
-    //debugger;
     const target: HTMLInputElement = e.target as HTMLInputElement;
     let file = target.files[0];
     this.img = file;
@@ -60,9 +59,7 @@ export class RegisterComponent implements OnInit {
           return this.message = "Username already exists";
 
         }
-      }
-
-      )
+      })
   }
 
   loginCall() {

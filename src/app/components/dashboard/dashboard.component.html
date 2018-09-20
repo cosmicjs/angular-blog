@@ -18,8 +18,7 @@
         <li> <button type="submit" class="btn" (click)="logout()">
             Logout
           </button></li>
-      </ul>
-            
+      </ul>          
           
             
                
@@ -49,6 +48,12 @@
             Logout
           </button>
         </li>
+        <!-- <li class="nav-item active">
+          <button type="submit" class="btn" (click)="hitId()">
+            Hit by ID
+          </button>
+        </li> -->
+
       </ul>
     
   </div>
@@ -57,15 +62,15 @@
 <div *ngIf="show == true">
   <div class="blog">
     <div class="container">
-      <ul *ngFor="let data of blogModel;  let i = index">
+      <ul *ngFor="let data of allBlogs;  let i = index">
         <div class="blog-image">
           <img src="{{data.metadata.blogImage}}" height=200px width=200px>
         </div>
         <h3>{{data.title}}</h3>
         <p>Author: {{data.metadata.author}}</p>
         <div class="blog-content">
-          <p>{{data.content | slice: 3:250}} ...</p>
-          <a class="btn btn-success" [routerLink]="['usersinglepost']" [queryParams]="{post_id: data._id}">Read more...</a>
+            <p [innerHTML]=data.metadata.description></p>  
+            <a class="btn btn-success" [routerLink]="['usersinglepost']" [queryParams]="{post_id: data._id}">Read more...</a>
         </div>
       </ul>
     </div>
@@ -82,26 +87,24 @@
         <div class="blog">
           <form [formGroup]="blogForm" (ngSubmit)="submitForm()" novalidate>
             <div class="form-group">
-              <input type=text formControlName="blogTitle" class="form-control" placeholder="Enter title">
+              <input type=text formControlName="title" class="form-control" placeholder="Enter title">
             </div>
             <div class="form-group">
-              <input type=text formControlName="blogDescription" class="form-control" placeholder="Enter description">
+              <input type=text formControlName="description" class="form-control" placeholder="Enter description">
+            </div>
+
+            <div class="form-group bg">
+              <!-- <textarea formControlName="content" class="form-control" placeholder="Enter body"></textarea> -->
+              <app-ngx-editor [placeholder]="'Enter text here...'" [spellcheck]="true" formControlName="content" style="height: 700px"></app-ngx-editor>
             </div>
 
             <div class="form-group">
-              <textarea formControlName="blogBody" class="form-control" placeholder="Enter body"></textarea>
-            </div>
 
-            <div class="form-group">
-
-              <input type=text formControlName="imageUrl" class="form-control" placeholder="Image URL">
+              <input type=text formControlName="blogImage" class="form-control" placeholder="Image URL">
             </div>
             <div class="form-group">
-              <button type="submit" class="btn btn-success" (click)="upload()">Publish</button>
+              <button type="submit" class="btn btn-success">Publish</button>
             </div>
-
-
-
             <p>{{message}}</p>
           </form>
         </div>
