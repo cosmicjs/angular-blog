@@ -24,8 +24,6 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { CosmicService} from './services/cosmic.service'
 import { NgxEditorModule } from 'ngx-editor';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
-import { CommentModule } from 'ng2-comment'; 
-
 enableProdMode();
 
 @NgModule({
@@ -55,8 +53,7 @@ enableProdMode();
     RouterModule.forRoot([
     ]),
     NgxEditorModule,
-    AngularFontAwesomeModule,
-    CommentModule,
+    AngularFontAwesomeModule,    
   ],
   exports: [BsDropdownModule, TooltipModule, ModalModule],
   providers: [HttpClient, AuthGuard, CosmicService],
