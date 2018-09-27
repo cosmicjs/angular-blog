@@ -10,8 +10,10 @@ This project was generated with Angular CLI and [Cosmic JS](https://cosmicjs.com
 
 npm install
 
-COSMIC_BUCKET=your-bucket-slug 
-COSMIC_READ_KEY=your-read-key 
+COSMIC_BUCKET=your-bucket-slug  
+
+COSMIC_READ_KEY=your-read-key  
+
 COSMIC_WRITE_KEY=your-write-key 
 
 npm start
