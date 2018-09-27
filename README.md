@@ -4,9 +4,9 @@
 
 This project was generated with Angular CLI and [Cosmic JS](https://cosmicjs.com/).
 
-#Get Started
+# Get Started
 
-##Running server:
+## Running server:
 
 npm install
 
