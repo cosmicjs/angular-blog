@@ -81,6 +81,8 @@ transition:all 0.5s;
     padding: 6px 20px;
 }
 
+a { text-decoration: none; color: rgb(39, 37, 37)}
+
   /* Responsive start here  */
 
   @media (max-width:767px) {

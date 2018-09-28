@@ -4,16 +4,14 @@
   <div class="container">
     <ul *ngFor="let data of allBlogs;  let i = index">
       <div class="blog-image">
-        <img src="{{data.metadata.blogImage}}" height=200px width=200px>
+        <a [routerLink]="['singlepost']" [queryParams]="{slug: data.slug}"><img src="{{data.metadata.blogImage}}" height=200px width=200px></a>
       </div>
-      <h3>{{data.title}}</h3>
+      <a [routerLink]="['singlepost']" [queryParams]="{slug: data.slug}"><h3>{{data.title}}</h3></a>
       <p>Author: {{data.metadata.author}}</p>
 
       <div class="blog-content">
           <p [innerHTML]=data.metadata.description></p>  
-        <!-- <p>{{data.content | slice: 0:250}}... </p> -->
-
-        <a class="btn btn-success" [routerLink]="['singlepost']" [queryParams]="{slug: data.slug}">Read more...</a>
+          <a class="btn btn-success" [routerLink]="['singlepost']" [queryParams]="{slug: data.slug}">Read more...</a>
       </div>
     </ul>
   </div>
