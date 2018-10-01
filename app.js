@@ -3,5 +3,5 @@ const app = express()
 
 app.use(express.static('./dist/ngApp'));
 
-app.listen(3000, function () {
+app.listen(5000, function () {
 });
