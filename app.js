@@ -3,5 +3,5 @@ const app = express()
 
 app.use(express.static('./dist'));
 
-app.listen(process.env.PORT, function () {
+app.listen(3000, function () {
 });
