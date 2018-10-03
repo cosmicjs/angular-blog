@@ -12,6 +12,8 @@ This project was generated with Angular CLI and [Cosmic JS](https://cosmicjs.com
 ## Running server:
 
 ```
+git clone https://github.com/cosmicjs/angular-blog
+cd angular-blog
 npm install
 COSMIC_BUCKET=your-bucket-slug COSMIC_READ_KEY=your-read-key COSMIC_WRITE_KEY=your-write-key npm start
 ```
