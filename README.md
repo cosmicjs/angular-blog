@@ -3,6 +3,7 @@
 ![Screenshot](https://cosmic-s3.imgix.net/40ab22a0-c718-11e8-8e06-0bd0f42fa67f-angular-blog.png?w=1200)
 
 ### [View Demo](https://cosmicjs.com/apps/angular-blog)
+#### [Read how it was built](https://cosmicjs.com/articles/how-to-build-a-blog-using-angular-and-cosmic-js)
 
 This project was generated with Angular CLI and [Cosmic JS](https://cosmicjs.com/).
 
