@@ -1,6 +1,6 @@
 # Angular Blog
 
-![Screenshot](https://cosmic-s3.imgix.net/e04ec530-c224-11e8-b221-e37a82f35b47-Screenshot%20from%202018-09-26%2016-02-47.png)
+![Screenshot](https://cosmic-s3.imgix.net/40ab22a0-c718-11e8-8e06-0bd0f42fa67f-angular-blog.png?w=1200)
 
 This project was generated with Angular CLI and [Cosmic JS](https://cosmicjs.com/).
 
