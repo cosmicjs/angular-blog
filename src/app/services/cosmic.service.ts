@@ -39,29 +39,34 @@ export class CosmicService {
 
             metafields: [
               {
+                title:"Username",
                 key: "username",
                 type: "text",
                 value: registerModel.username
               },
 
               {
+                title:"Email",
                 key: "email",
                 type: "text",
                 value: registerModel.email
               },
 
               {
+                title:"Full Name",
                 key: "fullName",
                 type: "text",
                 value: registerModel.fullName
               },
 
               {
+                title:"Password",
                 key: "password",
                 type: "text",
                 value: registerModel.password
               },
               {
+                title:"Image URL",
                 key: "imageUrl",
                 type: "text",
                 value: registerModel.imageUrl
@@ -82,16 +87,19 @@ export class CosmicService {
             title: blogModel.title, content: blogModel.content, slug: blogModel.title, type_slug: 'blogs', write_key: config.write_key,
             metafields: [
               {
+                title: "Author",
                 key: "author",
                 type: "text",
                 value: userName
               },
               {
+                title: "Description",
                 key: "description",
                 type: "text",
                 value: blogModel.description
               },
               {
+                title: "Blog Image",
                 key: "blogImage",
                 type: "text",
                 value: blogModel.blogImage
